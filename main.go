@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"gorm/conn"
-	"gorm/curd"
 	"gorm/model"
 	"gorm/utils"
 
@@ -30,14 +29,13 @@ func main() {
 	// curd.C(db)
 
 	// 查
-	curd.R(db)
+	// curd.R(db)
 
 	// 更
-	//curd.U(db)
+	// curd.U(db)
 
 	// 删
-	curd.D(db)
-
+	// curd.D(db)
 }
 
 // 创建数据库表
