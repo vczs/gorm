@@ -5,8 +5,6 @@ import (
 	"gorm/conn"
 	"gorm/model"
 	"gorm/utils"
-
-	"gorm.io/gorm"
 )
 
 func main() {
@@ -19,7 +17,7 @@ func main() {
 	fmt.Println("数据库连接成功！")
 
 	// 创建数据库表
-	if err = createTable(db, model.UserInfo{}); err != nil {
+	if err = db.AutoMigrate(&model.UserInfo{}); err != nil {
 		utils.MyLog("数据库表创建失败：", err)
 		return
 	}
@@ -36,14 +34,4 @@ func main() {
 
 	// 删
 	// curd.D(db)
-}
-
-// 创建数据库表
-func createTable(db *gorm.DB, table interface{}) error {
-	// 创建表(自动迁移)：把数据库表和结构体进行对应
-	err := db.AutoMigrate(table)
-	if err != nil {
-		return err
-	}
-	return nil
 }
